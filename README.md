@@ -25,6 +25,10 @@ Compile pipeline and OAS view-model helpers are covered with Vitest:
 npm test
 ```
 
+## Known audit findings
+
+`npm audit` reports one outstanding advisory: a brace-expansion DoS ([GHSA-mh99-v99m-4gvg](https://github.com/advisories/GHSA-mh99-v99m-4gvg)) reached only through the eslint toolchain (eslint 9 and eslint-config-next's bundled plugins pin minimatch 3). It's dev-only and not exploitable at runtime. There's no safe local fix: the patched brace-expansion 5.0.8 and minimatch 10 change their CommonJS export shapes in ways that crash those consumers, and eslint 10 breaks eslint-plugin-react. Clears when Next ships eslint-10-compatible tooling. Runtime advisories (postcss, sharp) are patched via `overrides` in package.json.
+
 ## Stack
 
 - Next.js (App Router) + TypeScript + SCSS modules
