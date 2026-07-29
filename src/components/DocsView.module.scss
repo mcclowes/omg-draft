@@ -1,25 +1,24 @@
 .docs {
-  padding: 34px 42px 80px;
-  color: var(--ink-on-paper);
+  padding: 30px 36px 80px;
+  color: var(--ink);
   max-width: 860px;
 }
 
 // ————— Header —————
 
 .header {
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .titleRow {
   display: flex;
   align-items: baseline;
-  gap: 14px;
+  gap: 12px;
 
   h1 {
-    font-family: var(--font-display-stack);
-    font-size: 38px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
   }
 }
 
@@ -27,91 +26,83 @@
   font-family: var(--font-mono-stack);
   font-size: 12px;
   font-weight: 600;
-  color: var(--seal-green);
-  border: 1.5px solid var(--seal-green);
-  border-radius: 3px;
-  padding: 2px 8px;
-  transform: rotate(-1deg);
+  color: var(--ink);
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 3px 8px;
 }
 
 .specMeta {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   margin-top: 10px;
-  font-family: var(--font-mono-stack);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  color: var(--ink-faint);
+  font-size: 12px;
+  color: var(--gray-500);
 
   code {
     font-family: var(--font-mono-stack);
-    color: var(--ink-soft);
-    background: rgba(38, 49, 61, 0.06);
+    color: var(--gray-700);
+    background: var(--surface-2);
     padding: 2px 8px;
     border-radius: 3px;
   }
 }
 
 .description {
-  margin-top: 16px;
-  font-size: 15px;
+  margin-top: 14px;
+  font-size: 14.5px;
   line-height: 1.65;
-  color: var(--ink-soft);
-  max-width: 60ch;
+  color: var(--gray-600);
+  max-width: 62ch;
   white-space: pre-line;
 }
 
 .noOps {
-  font-family: var(--font-display-stack);
-  font-style: italic;
-  color: var(--ink-faint);
-  font-size: 16px;
+  font-size: 14px;
+  color: var(--gray-500);
 }
 
 // ————— Tag sections —————
 
 .tagSection {
-  margin-bottom: 44px;
+  margin-bottom: 40px;
 }
 
 .tagHeading {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 6px;
+  gap: 14px;
+  margin-bottom: 4px;
 
   h2 {
-    font-family: var(--font-display-stack);
-    font-size: 24px;
-    font-weight: 600;
-    font-style: italic;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     white-space: nowrap;
   }
 
   .rule {
     flex: 1;
     height: 1px;
-    background: var(--paper-line);
+    background: var(--border-soft);
   }
 }
 
 .tagDescription {
-  font-size: 14px;
-  color: var(--ink-soft);
-  margin-bottom: 18px;
+  font-size: 13.5px;
+  color: var(--gray-600);
+  margin-bottom: 16px;
 }
 
-// ————— Operations —————
+// ————— Operation cards (OmgBlock style) —————
 
 .operation {
-  margin: 22px 0 34px;
-  padding-bottom: 30px;
-  border-bottom: 1px dashed var(--paper-line);
-
-  &:last-child {
-    border-bottom: none;
-  }
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  margin: 18px 0;
+  overflow: hidden;
 
   &[data-deprecated] {
     opacity: 0.6;
@@ -121,73 +112,62 @@
 .opHeader {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  padding: 9px 16px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .method {
   font-family: var(--font-mono-stack);
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--paper);
-  padding: 4px 10px;
-  border-radius: 3px;
-  background: var(--ink-soft);
-
-  &[data-method='get'] {
-    background: var(--m-get);
-  }
-  &[data-method='post'] {
-    background: var(--m-post);
-  }
-  &[data-method='put'] {
-    background: var(--m-put);
-  }
-  &[data-method='patch'] {
-    background: var(--m-patch);
-  }
-  &[data-method='delete'] {
-    background: var(--m-delete);
-  }
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--bg);
+  background: var(--ink);
+  padding: 3px 9px;
+  border-radius: 4px;
 }
 
 .path {
   font-family: var(--font-mono-stack);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-size: 13.5px;
+  font-weight: 600;
 }
 
 .pathParam {
   font-style: normal;
-  color: var(--m-get);
-  background: rgba(31, 111, 178, 0.08);
+  color: var(--gray-600);
+  background: rgba(0, 0, 0, 0.06);
   border-radius: 3px;
   padding: 0 2px;
 }
 
+.opBody {
+  padding: 16px;
+}
+
 .summary {
-  font-family: var(--font-display-stack);
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 600;
-  margin-top: 14px;
+  letter-spacing: -0.01em;
 }
 
 .opDescription {
-  margin-top: 8px;
-  font-size: 14px;
+  margin-top: 6px;
+  font-size: 13.5px;
   line-height: 1.6;
-  color: var(--ink-soft);
-  max-width: 62ch;
+  color: var(--gray-600);
+  max-width: 64ch;
 }
 
 .deprecated {
-  font-family: var(--font-mono-stack);
   font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--m-delete);
-  border: 1px solid var(--m-delete);
+  letter-spacing: 0.06em;
+  color: var(--status-server-fg);
+  background: var(--status-server-bg);
   border-radius: 3px;
   padding: 2px 6px;
 }
@@ -195,26 +175,25 @@
 // ————— Op sections —————
 
 .opSection {
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .opSectionLabel {
   display: block;
-  font-family: var(--font-mono-stack);
   font-size: 10.5px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--ink-faint);
-  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+  color: var(--gray-600);
+  margin-bottom: 8px;
 }
 
 .mediaType {
   display: inline-block;
   font-family: var(--font-mono-stack);
   font-size: 11px;
-  color: var(--ink-faint);
-  margin-bottom: 8px;
+  color: var(--gray-500);
+  margin-bottom: 6px;
 }
 
 // ————— Parameters —————
@@ -222,14 +201,23 @@
 .paramList {
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: var(--bg);
+  overflow: hidden;
 }
 
 .paramRow {
-  padding: 10px 0;
-  border-top: 1px solid rgba(217, 205, 178, 0.55);
+  padding: 9px 12px;
+  border-top: 1px solid var(--border-soft);
+  transition: background 0.1s;
 
   &:first-child {
     border-top: none;
+  }
+
+  &:hover {
+    background: var(--surface);
   }
 }
 
@@ -240,34 +228,26 @@
 
   code {
     font-family: var(--font-mono-stack);
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 600;
   }
 }
 
 .paramIn {
-  font-family: var(--font-mono-stack);
   font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ink-faint);
-  background: rgba(38, 49, 61, 0.07);
+  letter-spacing: 0.05em;
+  color: var(--gray-600);
+  background: var(--surface-2);
   padding: 2px 6px;
   border-radius: 3px;
-}
-
-.paramDetail {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 4px;
 }
 
 // ————— Responses —————
 
 .responseRow {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 
   &:last-child {
     margin-bottom: 0;
@@ -284,42 +264,49 @@
 .statusCode {
   font-family: var(--font-mono-stack);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 2px 8px;
-  border-radius: 3px;
-  color: var(--paper);
-  background: var(--ink-soft);
+  border-radius: 4px;
+  min-width: 44px;
+  text-align: center;
+  color: var(--gray-700);
+  background: var(--surface-2);
 
   &[data-status='2'] {
-    background: var(--seal-green);
+    background: var(--status-success-bg);
+    color: var(--status-success-fg);
   }
   &[data-status='3'] {
-    background: var(--m-put);
+    background: var(--status-redirect-bg);
+    color: var(--status-redirect-fg);
   }
   &[data-status='4'] {
-    background: var(--m-delete);
+    background: var(--status-client-bg);
+    color: var(--status-client-fg);
   }
   &[data-status='5'] {
-    background: #8b2635;
+    background: var(--status-server-bg);
+    color: var(--status-server-fg);
   }
 }
 
 .responseDescription {
-  font-size: 13.5px;
-  color: var(--ink-soft);
+  font-size: 13px;
+  color: var(--gray-600);
+  font-style: italic;
 }
 
 // ————— Schema trees —————
 
 .schemaTree {
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .arrayNote {
   font-family: var(--font-mono-stack);
   font-size: 11px;
   font-style: italic;
-  color: var(--ink-faint);
+  color: var(--gray-500);
 }
 
 .refChip {
@@ -327,20 +314,21 @@
   font-family: var(--font-mono-stack);
   font-size: 11px;
   font-weight: 600;
-  color: var(--m-patch);
-  border: 1px solid rgba(123, 92, 184, 0.4);
+  color: var(--gray-700);
+  background: var(--surface-2);
+  border: 1px solid var(--border-soft);
   border-radius: 3px;
   padding: 1px 7px;
   margin-bottom: 4px;
 }
 
 .properties {
-  border-left: 2px solid var(--paper-line);
-  padding-left: 16px;
+  border-left: 2px solid var(--border);
+  padding-left: 14px;
   margin: 8px 0 4px 2px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9px;
 }
 
 .propertyRow {
@@ -353,39 +341,46 @@
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .propertyName {
   font-family: var(--font-mono-stack);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
+  color: var(--ink-strong);
 }
 
 .typeLabel {
   font-family: var(--font-mono-stack);
-  font-size: 12px;
-  color: var(--m-get);
+  font-size: 11.5px;
+  color: var(--gray-700);
+  background: var(--surface-2);
+  padding: 1px 6px;
+  border-radius: 3px;
 }
 
 .required {
-  font-family: var(--font-mono-stack);
   font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--safety);
+  letter-spacing: 0.04em;
+  color: var(--bg);
+  background: var(--ink);
+  padding: 1px 6px;
+  border-radius: 3px;
 }
 
 .fieldDescription {
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.5;
-  color: var(--ink-soft);
+  color: var(--gray-600);
 }
 
 .constraints {
   font-family: var(--font-mono-stack);
-  font-size: 11px;
-  color: var(--ink-faint);
+  font-size: 10.5px;
+  color: var(--gray-500);
 }
 
 .variant {
@@ -393,28 +388,28 @@
 }
 
 .variantLabel {
-  font-family: var(--font-mono-stack);
-  font-size: 10.5px;
+  font-size: 10px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-faint);
+  letter-spacing: 0.06em;
+  color: var(--gray-500);
   margin-right: 8px;
 }
 
 // ————— Schemas section —————
 
 .schemaCard {
-  margin: 18px 0 26px;
+  margin: 16px 0 24px;
 }
 
 .schemaCardName {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
 
   code {
     font-family: var(--font-mono-stack);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
   }
 }

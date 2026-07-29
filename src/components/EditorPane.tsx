@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { markdown } from '@codemirror/lang-markdown';
 import type { WorkspaceFile } from '@/lib/workspace';
-import { draftingExtensions } from './editor-theme';
+import { editorExtensions } from './editor-theme';
 import styles from './EditorPane.module.scss';
 
 interface EditorPaneProps {
@@ -16,7 +16,7 @@ interface EditorPaneProps {
   onDelete: (path: string) => void;
 }
 
-const extensions = [markdown(), ...draftingExtensions];
+const extensions = [markdown(), ...editorExtensions];
 
 export function EditorPane({ files, activePath, onSelect, onChange, onAdd, onDelete }: EditorPaneProps) {
   const [adding, setAdding] = useState(false);

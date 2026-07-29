@@ -78,37 +78,39 @@ function OperationCard({ doc, entry }: { doc: OasDoc; entry: OperationEntry }) {
         {operation.deprecated && <span className={styles.deprecated}>deprecated</span>}
       </div>
 
-      {operation.summary && <h3 className={styles.summary}>{operation.summary}</h3>}
-      {operation.description && <p className={styles.opDescription}>{operation.description}</p>}
+      <div className={styles.opBody}>
+        {operation.summary && <h3 className={styles.summary}>{operation.summary}</h3>}
+        {operation.description && <p className={styles.opDescription}>{operation.description}</p>}
 
-      {operation.parameters && operation.parameters.length > 0 && (
-        <OpSection label="Parameters">
-          <div className={styles.paramList}>
-            {operation.parameters.map((param) => (
-              <ParameterRow key={`${param.in}:${param.name}`} doc={doc} param={param} />
-            ))}
-          </div>
-        </OpSection>
-      )}
-
-      {operation.requestBody?.content && (
-        <OpSection label="Request body">
-          {Object.entries(operation.requestBody.content).map(([mediaType, media]) => (
-            <div key={mediaType}>
-              <code className={styles.mediaType}>{mediaType}</code>
-              {media.schema && <SchemaTree doc={doc} schema={media.schema} depth={0} />}
+        {operation.parameters && operation.parameters.length > 0 && (
+          <OpSection label="Parameters">
+            <div className={styles.paramList}>
+              {operation.parameters.map((param) => (
+                <ParameterRow key={`${param.in}:${param.name}`} doc={doc} param={param} />
+              ))}
             </div>
-          ))}
-        </OpSection>
-      )}
+          </OpSection>
+        )}
 
-      {responses.length > 0 && (
-        <OpSection label="Responses">
-          {responses.map(([status, response]) => (
-            <ResponseRow key={status} doc={doc} status={status} response={response} />
-          ))}
-        </OpSection>
-      )}
+        {operation.requestBody?.content && (
+          <OpSection label="Request body">
+            {Object.entries(operation.requestBody.content).map(([mediaType, media]) => (
+              <div key={mediaType}>
+                <code className={styles.mediaType}>{mediaType}</code>
+                {media.schema && <SchemaTree doc={doc} schema={media.schema} depth={0} />}
+              </div>
+            ))}
+          </OpSection>
+        )}
+
+        {responses.length > 0 && (
+          <OpSection label="Responses">
+            {responses.map(([status, response]) => (
+              <ResponseRow key={status} doc={doc} status={status} response={response} />
+            ))}
+          </OpSection>
+        )}
+      </div>
     </div>
   );
 }

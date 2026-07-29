@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { exampleWorkspace } from '@/lib/example';
 import { loadWorkspace, saveWorkspace, type Workspace } from '@/lib/workspace';
@@ -89,10 +90,9 @@ export function Studio() {
     <div className={styles.studio}>
       <header className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.wordmark}>
-            omg<em>draft</em>
-          </span>
-          <span className={styles.tagline}>OAS markdown grammar · drafting desk</span>
+          <Image src="/omg.svg" alt="OMG" width={70} height={26} priority />
+          <span className={styles.wordmark}>draft</span>
+          <span className={styles.tagline}>OpenAPI Markdown Grammar · drafting studio</span>
         </div>
         <div className={styles.headerRight}>
           <span className={styles.status} data-phase={compile.phase}>

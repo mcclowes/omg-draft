@@ -4,12 +4,12 @@ import { useCallback, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { yaml } from '@codemirror/lang-yaml';
 import { EditorView } from '@codemirror/view';
-import { paperExtensions } from './editor-theme';
+import { yamlViewExtensions } from './editor-theme';
 import { DocsView } from './DocsView';
 import type { CompileState } from './useCompile';
 import styles from './PreviewPane.module.scss';
 
-const yamlExtensions = [yaml(), EditorView.editable.of(false), ...paperExtensions];
+const yamlExtensions = [yaml(), EditorView.editable.of(false), ...yamlViewExtensions];
 
 export function PreviewPane({ compile }: { compile: CompileState }) {
   const [view, setView] = useState<'docs' | 'yaml'>('docs');
