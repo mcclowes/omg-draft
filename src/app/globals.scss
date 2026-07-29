@@ -1,0 +1,91 @@
+// omg draft — drafting desk (ink blueprint) + printed spec sheet (paper)
+
+:root {
+  // Desk (dark side)
+  --ink-950: #0a1420;
+  --ink-900: #0e1a2b;
+  --ink-850: #122238;
+  --ink-800: #16283f;
+  --ink-700: #233a58;
+  --ink-line: rgba(126, 178, 240, 0.14);
+  --grid-line: rgba(126, 178, 240, 0.06);
+  --grid-line-major: rgba(126, 178, 240, 0.1);
+
+  --chalk: #d8e6f5;
+  --chalk-dim: #8ba3bf;
+  --chalk-faint: #5a7391;
+  --cyan: #67c6ff;
+  --cyan-soft: rgba(103, 198, 255, 0.16);
+
+  // Paper (light side)
+  --paper: #f7f1e4;
+  --paper-warm: #f1e8d6;
+  --paper-edge: #e4d9c2;
+  --paper-line: #d9cdb2;
+  --ink-on-paper: #26313d;
+  --ink-soft: #5a6673;
+  --ink-faint: #8b95a1;
+
+  // Accents
+  --safety: #ff6b35;
+  --safety-soft: rgba(255, 107, 53, 0.12);
+  --seal-green: #2d8a5f;
+
+  // Method colours (stamped chips on paper)
+  --m-get: #1f6fb2;
+  --m-post: #2d8a5f;
+  --m-put: #b07d18;
+  --m-patch: #7b5cb8;
+  --m-delete: #c04a35;
+
+  --font-display-stack: var(--font-display), Georgia, serif;
+  --font-body-stack: var(--font-body), -apple-system, sans-serif;
+  --font-mono-stack: var(--font-mono), 'SF Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body-stack);
+  background: var(--ink-950);
+  color: var(--chalk);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(103, 198, 255, 0.3);
+}
+
+// CodeMirror fills its pane
+.cm-editor {
+  height: 100%;
+  outline: none !important;
+}
+
+.cm-scroller {
+  font-family: var(--font-mono-stack) !important;
+  font-size: 13px;
+  line-height: 1.65;
+}
